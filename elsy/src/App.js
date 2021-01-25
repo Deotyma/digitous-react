@@ -1,4 +1,5 @@
 import React from "react";
+import Steps from "./components/Steps";
 import './App.css';
 
 const tempMin = -20;
@@ -15,6 +16,7 @@ export class App extends React.Component {
         <div className = "row">
             <p>Heart: {heartMin}</p>
             <p>Temperature: {tempMin}</p>
+            <Steps />
             <p>Steps: {stepsMin} </p>
         </div>
       </div>
