@@ -10,7 +10,7 @@ export class Box extends React.Component{
                 <span style = {{color: this.props.color, fontSize: 100}} class="material-icons"> {this.props.icon} </span>
                 <div>
                     <input type="range" id="value" name="value"
-                    min={this.props.min} max={this.props.max}/> 
+                    min={this.props.min} max={this.props.max} value={this.props.value}/> 
                     </div>
                 <p>{this.props.value} {this.props.unit}</p>
                 
