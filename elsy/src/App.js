@@ -20,6 +20,12 @@ export class App extends React.Component {
       steps: 3000
     }
   }
+
+  let onimput {heart} = value;
+
+  onHeartChange = () =>{
+    this.setState({heart: this.state.heart = onimput});
+  }
   /* constructor(props) {
     super(props);
     this.state = {
