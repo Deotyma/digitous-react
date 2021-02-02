@@ -34,7 +34,7 @@ class App extends React.Component {
   };
 
   passwordValid = (event) => {
-    console.log(event.target.value);
+    console.log("password");
     let newPasswordValid = false;
     if (event.target.value.length >= 6) {
       newPasswordValid = true;
