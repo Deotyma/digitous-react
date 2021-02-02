@@ -9,20 +9,57 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      validMail: false,
+      validPassword: false,
       email: "",
       password: "",
+      click: false,
+      rememberMe: false,
     };
+    this.submittedForm = this.submittedForm.bind(this);
+    this.emailValid = this.emailValid.bind(this);
+    this.passwordValid = this.passwordValid.bind(this);
   }
 
-  passwordValid = () => {
-    console.log("password");
+  emailValid = (event) => {
+    console.log("email");
+    const newEmail = event.target.value;
+    const reg = /^\S+@\S+\.\S+$/g;
+    const isEmail = reg.test(newEmail);
+
+    this.setState({
+      email: newEmail,
+      emailValid: isEmail,
+    });
+  };
+
+  passwordValid = (event) => {
+    console.log(event.target.value);
+    let newPasswordValid = false;
+    if (event.target.value.length >= 6) {
+      newPasswordValid = true;
+    } else {
+      newPasswordValid = false;
+    }
+
+    this.setState({
+      password: event.target.value,
+      passwordValid: newPasswordValid,
+    });
+  };
+
+  submittedForm = () => {
+    console.log("ça y est");
   };
 
   render() {
     return (
       <div className="App">
-        <Submitted />
-        <Form passwordValid={this.passwordValid} />
+        <Form
+          submittedForm={this.submittedForm}
+          emailValid={this.emailValid}
+          passwordValid={this.passwordValid}
+        />
       </div>
     );
   }

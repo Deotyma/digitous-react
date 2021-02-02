@@ -10,25 +10,28 @@ class Form extends React.Component {
             <label htmlFor="e-mail" className="form-label">
               Email address
             </label>
-            <input type="email" id="e-mail" className="form-control" />
+            <input
+              type="email"
+              id="e-mail"
+              className="form-control"
+              onChange={this.props.emailValid}
+            ></input>
           </div>
+
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
               type="password"
-              className="form-control pass"
+              className="form-control"
+              onChange={this.props.passwordValid}
               id="exampleInputPassword1"
             ></input>
           </div>
 
           <div className="mb-3 form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            ></input>
+            <input type="checkbox" id="exampleCheck1"></input>
             <label className="form-check-label" htmlFor="exampleCheck1">
               Remember me
             </label>
@@ -37,7 +40,7 @@ class Form extends React.Component {
           <button
             type="submit"
             className="btn btn-primary"
-            onClick={this.props.onClick}
+            onClick={this.props.submittedForm}
           >
             Submit
           </button>
