@@ -5,8 +5,14 @@ class Add extends React.Component {
     return (
       <div className="add">
         <div className="row mt-3">
-          <input type="text" className="col-12"></input>
+          <input type="text" className="col-10"></input>
+          <button type="submit" className="btn btn-light mx-2">
+            Ajouter
+          </button>
         </div>
+        <p className="my-2">
+          <span>1</span>€
+        </p>
 
         <input
           type="range"
