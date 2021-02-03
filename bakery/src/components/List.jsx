@@ -3,8 +3,10 @@ import React from "react";
 class List extends React.Component {
   render() {
     return (
-      <ul>
-        <li></li>
+      <ul className="col-9">
+        <li>tutaj beda produkty</li>
+        <li>tutaj beda produkty</li>
+        <li>tutaj beda produkty</li>
       </ul>
     );
   }
