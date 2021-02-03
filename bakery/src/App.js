@@ -37,7 +37,7 @@ class App extends React.Component {
 
   renderContent() {
     if (this.state.activeTab === "add") {
-      return <Add></Add>;
+      return <Add addItem={this.addItem}></Add>;
     }
     if (this.state.activeTab === "list") {
       return <List></List>;
@@ -46,6 +46,14 @@ class App extends React.Component {
       return <Pay></Pay>;
     }
   }
+
+  addItem = (productName, price) => {
+    let name = productName;
+    let itemPrice = price;
+    this.setState({
+      items: [...this.state.items, { name, itemPrice }],
+    });
+  };
 
   render() {
     return (

@@ -9,7 +9,6 @@ class Add extends React.Component {
     };
   }
   updateProductName = (event) => {
-    console.log(event.target.value);
     this.setState({ productName: event.target.value });
   };
 
@@ -26,7 +25,13 @@ class Add extends React.Component {
             className="col-10"
             onChange={this.updateProductName}
           ></input>
-          <button type="submit" className="btn btn-light mx-2">
+          <button
+            type="submit"
+            className="btn btn-light mx-2"
+            onClick={(e) =>
+              this.props.addItem(this.state.productName, this.state.price)
+            }
+          >
             Ajouter
           </button>
         </div>
