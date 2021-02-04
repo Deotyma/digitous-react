@@ -55,6 +55,8 @@ class App extends React.Component {
     });
   };
 
+  showItems = () => {};
+
   render() {
     return (
       <div className="container">
@@ -93,6 +95,7 @@ class App extends React.Component {
           </Buttons>
         </div>
         {this.renderContent()}
+        <ul></ul>
       </div>
     );
   }
