@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Movie from "./components/Movie";
+import Home from "./components/Home";
 
 const movies = [
   {
@@ -90,17 +92,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App container">
-        <h1 className="text-center my-3">Catalog</h1>
-        <div className="row">
-          {movies.map((mouvie) => {
-            return (
-              <div className="col-3">
-                <img src={mouvie.image} alt={mouvie.title} />
-                <h2>{mouvie.title}</h2>;
-              </div>
-            );
-          })}
-        </div>
+        <Movie filmTitle={movies[0].title} />
+        <Home films={movies} />
       </div>
     );
   }
