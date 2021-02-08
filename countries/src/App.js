@@ -18,18 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/name/brasil")
-      .then((result) => result.json())
-      .then((result) => {
-        this.setState({
-          name: result[0].name,
-          capital: result[0].capital,
-          flag: result[0].flag,
-          population: result[0].population,
-          region: result[0].region,
-        });
-      })
-      .catch((error) => console.error(error));
+    this.getCountries("france");
   }
 
   getCountries(country) {
@@ -54,15 +43,9 @@ class App extends React.Component {
       <div className="container">
         <h1 className="text-center my-2">COUNTRY SELECTOR</h1>
         <div className="row justify-content-center my-2">
-          <Button onClick={(event) => this.getCountries("france", event)}>
-            France
-          </Button>
-          <Button onClick={(event) => this.getCountries("brasil", event)}>
-            Brasil
-          </Button>
-          <Button onClick={(event) => this.getCountries("croatia", event)}>
-            Croatia
-          </Button>
+          <Button onClick={() => this.getCountries("france")}>France</Button>
+          <Button onClick={() => this.getCountries("brasil")}>Brasil</Button>
+          <Button onClick={() => this.getCountries("croatia")}>Croatia</Button>
         </div>
         <Serch
           updateCountryName={this.props.updateCountryName}

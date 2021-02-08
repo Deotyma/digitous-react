@@ -17,12 +17,12 @@ class Serch extends React.Component {
         <div className="row mt-3">
           <input
             type="text"
-            className="col-10"
+            className="col-12"
             onChange={this.updateCountryName}
           ></input>
           <button
             type="submit"
-            className="btn btn-light mx-2"
+            className="btn btn-info mx-2 col-2"
             onClick={this.updateCountryName}
           >
             serch
