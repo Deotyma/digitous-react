@@ -89,12 +89,38 @@ const movies = [
 ];
 
 class App extends React.Component {
+  renderContent = () => {
+    return (
+      <Switch>
+        <Route exact path="/">
+          <Home films={movies}></Home>
+        </Route>
+        <Route
+          path="/movie/:id"
+          render={(props) => (
+            <Movie
+              filmTitle={movies[props.match.params.id].title}
+              filmImage={movies[props.match.params.id].image}
+              filmDirector={movies[props.match.params.id].director}
+              filmDescription={movies[props.match.params.id].description}
+              filmStars={movies[props.match.params.id].stars}
+            ></Movie>
+          )}
+        ></Route>
+      </Switch>
+    );
+  };
+
   render() {
     return (
-      <div className="App container">
-        <Movie filmTitle={movies[0].title} />
-        <Home films={movies} />
-      </div>
+      <BrowserRouter>
+        <div className="App container">
+          <Link to={"/"}>
+            <span className="home">Home</span>
+          </Link>
+          {this.renderContent()}
+        </div>
+      </BrowserRouter>
     );
   }
 }

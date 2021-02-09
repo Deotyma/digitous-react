@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Home extends React.Component {
   render() {
@@ -9,12 +10,14 @@ class Home extends React.Component {
           {this.props.films.map((film) => {
             return (
               <div className="col-3">
-                <img
-                  className="catalogImage"
-                  src={film.image}
-                  alt={film.title}
-                />
-                <h2 className="mt-2">{film.title}</h2>;
+                <Link to={`/movie/${film.id - 1}`}>
+                  <img
+                    className="catalogImage"
+                    src={film.image}
+                    alt={film.title}
+                  />
+                </Link>
+                <h2 className="mt-2">{film.title}</h2>
               </div>
             );
           })}

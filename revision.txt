@@ -1,0 +1,140 @@
+- Pourquoi React ? 
+React c'est un framework qui facilite écriture et organisation du code. Permete de creer des "petits briques" réutilisanbles et sepmlifie aussi implementation de certins finctions de js.
+
+- Ecrivez un composant React qui affiche un titre h1 avec marqué "Bonjour" suivi du nom passé en props.
+
+import React from "react";
+
+class App extends React.Component {
+  render() {
+      return (
+			<h1>Bonjour {this.props.firstName}</h1>
+		);
+  }
+}
+
+- A quoi sert une props ?
+Les props permettent envoyer les informations d'un parent à un enfant.
+
+- Quelle méthode peut on utiliser pour afficher une partie de chaque élément d'un tableau ?
+table.map(()=>{function})
+
+- Grace à cette méthode, completer le code suivant pour afficher le Nom et Prénom dans une balise p de chacun des apprenants
+
+import React from 'react';
+
+class Promo extends React.Component {
+	apprenants = [
+		{firstName: "John", lastName: "Doe"}, 
+		{firstName: "Jane", lastName: "Roe"}, 
+		{firstName: "Larry", lastName: "Loe"}
+	];
+
+	render() {
+		return (
+			this.props.apprenants.map((apprenant)=> 
+                return(
+                    <p>{apprenant.firstName} {apprenant.lastName}</p>
+                ))
+		);
+	}
+}
+
+export default Promo;
+
+- Dans quel cas doit on utiliser un state ? Quelles sont les différences avec les props ?
+un state on donne aux variable qui sont souseptibles de changer. Les props on donne aux variables qui sont déjà changé ou qui sont écrit en dur. 
+
+- Comment peut on passer une information d'un parent à son enfant ? et d'un enfant à son parent ?
+grace aux props, on les declare chez parent et chez enfant
+
+- Sur quel élément HTML peux on récuperer l'evenement onClick ?
+en React sur tous
+
+- Completez le code suivant pour recuperer dans le state name, la valeur rentrer par l'utilsateur dans l'input
+
+import React from 'react';
+
+class Form extends React.Component {
+	constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      
+    };
+	}
+
+	onChange(event) {
+			this.setState({ name: event.target.value });
+	}
+
+	render() {
+		return (
+			<input value={this.state.name} onChange={this.onChange} />
+		);
+	}
+}
+
+export default Form;
+
+
+- A quoi sert une fonction de callback asynchrone ?
+ces functions passent les informations à d'autres functions. 
+
+- Quelle est la différence entre une fonction de callback et une promesse ?
+callback se ralise en son temps sans que les l'autres functions attendent pour ses resultats ou la fin de l'execution de cette function. Une promesse ce le suite des differents functions qui se realisent une apres l'autres selon l'ordre parce que elles ont besoins des données de la function precedante.
+
+- Expliquez du mieux possible le cycle de vie d'un composant React.
+
+
+- Completez le code suivant qui va chercher le pokemon suivant: [https://pokeapi.co/api/v2/pokemon/17](https://pokeapi.co/api/v2/pokemon/17) et qui affiche son nom
+
+```jsx
+import React from 'react';
+
+class Pokemon extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: ""
+		}
+	}
+
+    componentDidMount() {
+    this.getCountries("17");
+  }
+
+    getPokemon(id) {
+    let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    fetch(url)
+      .then((result) => result.json())
+      .then((result) => {
+        console.log("resultat = ", result);
+        this.setState({
+          name: result[0].name,
+        });
+      })
+      .catch((error) => console.error(error));
+  }
+
+	render() {
+		return (
+			<p>My pokemon is: {this.state.name}</p>
+		);
+	}
+}
+
+export default Form;
+```
+
+- Comment mettre à jour le code ci dessus pour gerer une possible erreur lors de la récupération des infos du pokémon ?
+en ajoutanrt à la fin .catch((error) => console.error(error))
+
+- A quoi sert un Router ?
+Pour generer les differents url 
+
+- Quels sont les 4 principaux composants d'un Router et à quoi servent ils ?
+BrowserRouter - entre cette balise on ecrit nos differents liens  
+Route - on indique la path pour aller vers tel ou tel page (information)
+Link - on precise dans BrowserRouter un url
+Switch à l'interieur on ecrit des routes et cela parmette de switcher entre differentes url et contenus de la page
