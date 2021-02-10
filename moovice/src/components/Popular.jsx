@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 class Popular extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Popular extends React.Component {
       .then((filmsFromApi) => {
         console.log("resultat = ", filmsFromApi);
         this.setState({
-          movies: filmsFromApi,
+          movies: filmsFromApi.results,
         });
       });
   }
@@ -24,7 +25,13 @@ class Popular extends React.Component {
   render() {
     return (
       <main>
-        <div className="container"></div>
+        <div className="container">
+          <div className="row">
+            {this.state.movies.map((movie, index) => {
+              return <Card filmTitle={movie} key={`film-list-key ${index}`} />;
+            })}
+          </div>
+        </div>
       </main>
     );
   }

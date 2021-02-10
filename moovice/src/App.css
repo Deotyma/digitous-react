@@ -2,15 +2,26 @@ body {
   background-color: gray;
   background-image: url(./images/abstract-5719221_1920.jpg);
   color: white;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-main {
+main,
+.white {
   color: white;
+}
+
+.poster {
+  width: 200px;
 }
 
 .navigation {
   border-bottom: solid 1px #ffffff;
   text-align: center;
+  margin-bottom: 1rem;
+
 }
 
 .navLink {
