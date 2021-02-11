@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import PopularBattle from "./PobularBattle";
 
 class Popular extends React.Component {
   constructor(props) {
